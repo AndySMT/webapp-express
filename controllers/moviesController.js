@@ -1,7 +1,7 @@
 // importo il database
 const connection = require("../data/moviesDB");
 
-//index
+//!index
 const index = (req, res) => {
   // preparo la query
   const sql = "SELECT * FROM movies";
@@ -11,6 +11,7 @@ const index = (req, res) => {
     res.json(results);
   });
 };
+//!show
 const show = (req, res) => {
   // Recuperiamo l'ID dall'URL
   const id = req.params.id;
@@ -40,5 +41,4 @@ const show = (req, res) => {
   });
 };
 
-// esporto la funzione nelle rotte
 module.exports = { index, show };

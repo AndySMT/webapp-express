@@ -8,6 +8,7 @@ const port = process?.env.PORT || 3000;
 //altri import
 const moviesRouter = require("./routers/moviesRouter");
 const notFound = require("./middlewares/notFound");
+const errorHandler = require("./middlewares/errorHandler");
 
 //npm i cors
 const cors = require("cors");
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 
 app.use("/movies", moviesRouter);
 
+app.use(errorHandler);
 //metto in ascolto un errore 404
 app.use(notFound);
 
